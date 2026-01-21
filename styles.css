@@ -82,6 +82,7 @@ header p {
 header a {
     color: var(--link-color);
     text-decoration: none;
+    cursor: none;
 }
 
 header a:hover {
@@ -109,6 +110,7 @@ header nav ul li a {
     font-size: 0.95rem;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: none;
 }
 
 header nav ul li a:hover {
@@ -154,6 +156,7 @@ ul li {
 ul li a {
     color: var(--link-color);
     text-decoration: none;
+    cursor: none;
 }
 
 ul li a:hover {
@@ -216,6 +219,7 @@ section + section {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
+    cursor: none;
 }
 
 .back-to-home:hover {
@@ -252,7 +256,7 @@ section + section {
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 30px;
+    cursor: none;
 }
 
 .toggle-switch input {
@@ -263,6 +267,7 @@ section + section {
 
 .toggle-slider {
     position: absolute;
+    cursor: noneute;
     cursor: pointer;
     top: 0;
     left: 0;
