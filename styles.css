@@ -117,3 +117,27 @@ section + section {
         font-size: 1rem;
     }
 }
+
+/* Back to Home button styling */
+.back-to-home {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.back-to-home:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.back-to-home:active {
+    transform: translateY(0);
+}
