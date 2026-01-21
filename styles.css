@@ -40,6 +40,39 @@ header a:hover {
     text-decoration: underline;
 }
 
+/* Header navigation button styling */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+header nav ul li a:active {
+    transform: translateY(0);
+}
+
 /* Section styling */
 section {
     margin-bottom: 30px;
