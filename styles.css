@@ -5,13 +5,39 @@
     box-sizing: border-box;
 }
 
+/* Theme variables */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --text-secondary: #34495e;
+    --text-muted: #7f8c8d;
+    --heading-color: #2c3e50;
+    --link-color: #3498db;
+    --link-hover: #2980b9;
+    --button-bg: #3498db;
+    --button-hover: #2980b9;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --heading-color: #ffffff;
+    --link-color: #5dade2;
+    --link-hover: #85c1e9;
+    --button-bg: #5dade2;
+    --button-hover: #85c1e9;
+}
+
 /* Basic styling */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header styling */
@@ -22,17 +48,17 @@ header {
 
 header h1 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: var(--heading-color);
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2rem;
-    color: #7f8c8d;
+    color: var(--text-muted);
 }
 
 header a {
-    color: #3498db;
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -54,7 +80,7 @@ header nav ul li {
 header nav ul li a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: var(--button-bg);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -64,7 +90,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    background-color: #2980b9;
+    background-color: var(--button-hover);
     transform: translateY(-2px);
     text-decoration: none;
 }
@@ -80,14 +106,18 @@ section {
 
 section h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: var(--heading-color);
     margin-bottom: 15px;
+}
+
+section h3 {
+    color: var(--heading-color);
 }
 
 section p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #34495e;
+    color: var(--text-secondary);
 }
 
 ul {
@@ -100,12 +130,13 @@ ul li {
 }
 
 ul li a {
-    color: #3498db;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 ul li a:hover {
     text-decoration: underline;
+    color: var(--link-hover);
 }
 
 /* Projects section styling */
@@ -155,7 +186,7 @@ section + section {
 .back-to-home {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #3498db;
+    background-color: var(--button-bg);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -166,11 +197,90 @@ section + section {
 }
 
 .back-to-home:hover {
-    background-color: #2980b9;
+    background-color: var(--button-hover);
     transform: translateY(-2px);
     text-decoration: none;
 }
 
 .back-to-home:active {
     transform: translateY(0);
+}
+
+/* Theme toggle styling */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Toggle switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 30px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--button-bg);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+.toggle-slider:after {
+    content: '☀️';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    font-size: 16px;
+}
+
+input:checked + .toggle-slider:after {
+    content: '🌙';
+    left: auto;
+    right: 8px;
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes-Based Hosting Infrastructure</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme-toggle.js"></script>
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <div class="theme-toggle-wrapper">
+            <label class="toggle-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+    
+    <header>
+        <h1>Kubernetes-Based Hosting Infrastructure</h1>
+        <p>January 2026 | Infrastructure & DevOps Project</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>This project represents my exploration into modern infrastructure management and container orchestration. I designed and deployed a Kubernetes-based hosting infrastructure on a local cluster, using a stateful Minecraft server as the primary application. The project demonstrates practical implementation of industry-standard DevOps tools and practices, including container orchestration, persistent storage management, and comprehensive monitoring solutions.</p>
+        </section>
+
+        <section>
+            <h2>Technical Implementation</h2>
+            <h3>Container Orchestration</h3>
+            <ul>
+                <li>Orchestrated a stateful Minecraft server deployment on a local Kubernetes cluster, managing the complete application lifecycle from deployment to scaling</li>
+                <li>Utilized <strong>Helm</strong> charts for streamlined application packaging and deployment management, enabling reproducible and version-controlled infrastructure</li>
+                <li>Leveraged <strong>Docker</strong> for containerization, ensuring consistent runtime environments across different deployment stages</li>
+            </ul>
+
+            <h3>Networking and Storage</h3>
+            <ul>
+                <li>Engineered a robust networking layer using <strong>Traefik</strong> as an ingress controller, implementing both TCP and HTTP routing to handle diverse traffic patterns</li>
+                <li>Configured Traefik to manage external access to the Minecraft server while maintaining security best practices</li>
+                <li>Implemented <strong>Persistent Volume Claims (PVC)</strong> to ensure data durability across pod restarts and redeployments, preserving game state and player progress</li>
+                <li>Designed storage strategies to balance performance requirements with data persistence needs</li>
+            </ul>
+
+            <h3>Monitoring and Observability</h3>
+            <ul>
+                <li>Integrated <strong>Prometheus</strong> for comprehensive metrics collection and time-series data storage</li>
+                <li>Deployed <strong>Grafana</strong> dashboards for real-time cluster monitoring and visualization of key performance indicators</li>
+                <li>Optimized resource allocation based on Java heap usage metrics, ensuring efficient memory management for the Minecraft server</li>
+                <li>Established alerting mechanisms to proactively identify and address performance bottlenecks</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Container Orchestration:</strong> Kubernetes, Helm, Docker</li>
+                <li><strong>Networking:</strong> Traefik (Ingress Controller)</li>
+                <li><strong>Storage:</strong> Kubernetes Persistent Volumes (PV) and Persistent Volume Claims (PVC)</li>
+                <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+                <li><strong>Application:</strong> Minecraft Server (Java-based)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Key Achievements</h2>
+            <ul>
+                <li>Successfully deployed and maintained a production-ready stateful application on Kubernetes, demonstrating understanding of complex orchestration requirements</li>
+                <li>Implemented a complete observability stack, enabling data-driven infrastructure optimization decisions</li>
+                <li>Designed a resilient storage architecture that maintains data integrity across pod lifecycle events</li>
+                <li>Gained hands-on experience with industry-standard DevOps tools and practices used in modern cloud-native environments</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Learning Outcomes</h2>
+            <p>This project provided invaluable experience in modern infrastructure management and DevOps practices. Working with Kubernetes deepened my understanding of container orchestration, service discovery, and declarative infrastructure management. The integration of monitoring tools taught me the importance of observability in maintaining reliable systems, while implementing persistent storage solutions highlighted the unique challenges of running stateful applications in containerized environments.</p>
+            <p>The hands-on experience with Traefik, Prometheus, and Grafana has equipped me with practical knowledge of the cloud-native ecosystem, preparing me for real-world infrastructure challenges in professional environments.</p>
+        </section>
+
+        <footer>
+            <a href="index.html" class="back-to-home">← Back to Home</a>
+        </footer>
+    </main>
+</body>
+</html>
