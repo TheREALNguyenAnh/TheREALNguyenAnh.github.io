@@ -7,11 +7,11 @@
 
 /* Theme variables */
 :root {
-    --bg-color: #f4f4f4;
-    --text-color: #333;
-    --text-secondary: #34495e;
-    --text-muted: #7f8c8d;
-    --heading-color: #2c3e50;
+    --bg-color: #FFF8E7;
+    --text-color: #2c2416;
+    --text-secondary: #3d3420;
+    --text-muted: #6b5e44;
+    --heading-color: #1a1510;
     --link-color: #3498db;
     --link-hover: #2980b9;
     --button-bg: #3498db;
