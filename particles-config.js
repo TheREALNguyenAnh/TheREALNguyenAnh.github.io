@@ -34,7 +34,7 @@ function initParticles() {
                 }
             },
             size: {
-                value: 9,
+                value: 7,
                 random: true,
                 anim: {
                     enable: false
