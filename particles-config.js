@@ -34,7 +34,7 @@ function initParticles() {
                 }
             },
             size: {
-                value: 3,
+                value: 9,
                 random: true,
                 anim: {
                     enable: false
@@ -45,7 +45,7 @@ function initParticles() {
                 distance: 150,
                 color: particleColor,
                 opacity: 0.4,
-                width: 1
+                width: 3
             },
             move: {
                 enable: true,
