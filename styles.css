@@ -141,7 +141,7 @@ header {
     color: white;
 }
 
-.games-dropdown:hover .games-dropdown-content {
+.games-dropdown.open .games-dropdown-content {
     display: block;
 }
 

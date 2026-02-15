@@ -14,7 +14,7 @@
     
     <div class="games-dropdown-container">
         <div class="games-dropdown">
-            <button class="games-dropdown-btn">🎮 Games</button>
+            <button class="games-dropdown-btn" onclick="this.parentElement.classList.toggle('open')">🎮 Games</button>
             <div class="games-dropdown-content">
                 <a href="static_game/flappy_bird.html">Flappy Bird</a>
             </div>
@@ -81,5 +81,14 @@
         </ul>
     </section>
     <script src="particles-config.js"></script>
+    <script>
+        // Close games dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.games-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>
