@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Flappy</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #333; font-family: sans-serif; overflow: hidden; }
+        canvas { box-shadow: 0 0 20px rgba(0,0,0,0.5); border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <canvas id="g" width="400" height="600"></canvas>
+    <script>
+        // Wrapped in an Immediately Invoked Function Expression (IIFE) 
+        // to prevent "redeclaration of global property" errors.
+        (() => {
+            const c = document.getElementById('g');
+            const ctx = c.getContext('2d');
+            
+            // Renamed variables to avoid conflicts with window.x/y and improve clarity
+            let birdY = 200, velocity = 0, pipeX = 400, holeY = 200, score = 0, isRunning = false; 
+            
+            const loop = () => {
+                // Background
+                ctx.fillStyle = "#70c5ce"; ctx.fillRect(0, 0, 400, 600);
+                
+                if (!isRunning) {
+                    // Menu Screen
+                    ctx.fillStyle = "white"; ctx.font = "30px Arial"; ctx.textAlign = "center";
+                    ctx.fillText("Click to Flap", 200, 300);
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText(score ? `Score: ${score}` : "", 200, 340);
+                } else {
+                    // Game Logic
+                    velocity += 0.5; birdY += velocity; pipeX -= 3;
+                    
+                    // Pipe recycling
+                    if (pipeX < -50) { pipeX = 400; holeY = Math.random() * 300 + 150; score++; }
+                    
+                    // Collision Detection (Floor, Ceiling, Pipe)
+                    if (birdY > 600 || birdY < 0 || (pipeX < 70 && pipeX > 10 && (birdY < holeY - 60 || birdY > holeY + 60))) {
+                        isRunning = false; birdY = 200; velocity = 0; pipeX = 400; // Reset but keep score for display
+                    }
+                    
+                    // Draw Pipes
+                    ctx.fillStyle = "#74BF2E"; 
+                    ctx.fillRect(pipeX, 0, 50, holeY - 60);       // Top pipe
+                    ctx.fillRect(pipeX, holeY + 60, 50, 600);     // Bottom pipe
+                    ctx.fillStyle = "#558C22";            // Pipe details (cap)
+                    ctx.fillRect(pipeX-2, holeY-80, 54, 20);      
+                    ctx.fillRect(pipeX-2, holeY+60, 54, 20);
+
+                    // Draw Bird
+                    ctx.fillStyle = "#F4D03F"; 
+                    ctx.beginPath(); ctx.arc(50, birdY, 15, 0, Math.PI*2); ctx.fill();
+                    ctx.fillStyle = "white"; ctx.beginPath(); ctx.arc(58, birdY-5, 5, 0, Math.PI*2); ctx.fill(); // Eye
+                    
+                    // Draw Score
+                    ctx.fillStyle = "white"; ctx.font = "bold 40px Arial"; ctx.textAlign = "center";
+                    ctx.fillText(score, 200, 80);
+                    ctx.strokeText(score, 200, 80);
+                }
+                requestAnimationFrame(loop);
+            };
+            
+            // Input handling
+            const handleInput = () => {
+                if (isRunning) velocity = -8; 
+                else { isRunning = true; score = 0; birdY = 200; velocity = 0; pipeX = 400; }
+            };
+
+            // Use 'c' (canvas) instead of window to capture clicks more cleanly
+            c.onpointerdown = (e) => {
+                e.preventDefault(); 
+                handleInput();
+            };
+
+            // Handle spacebar
+            window.onkeydown = (e) => {
+                if(e.code === "Space") handleInput();
+            }
+
+            loop();
+        })();
+    </script>
+</body>
+</html>
