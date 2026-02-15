@@ -82,13 +82,12 @@ header {
     z-index: 10;
 }
 
-/* Header title row with games dropdown */
-.header-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 10px;
+/* Games dropdown container - fixed top left */
+.games-dropdown-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 }
 
 /* Games dropdown */
@@ -148,6 +147,7 @@ header {
 
 header h1 {
     font-size: 2.5rem;
+    margin-bottom: 10px;
     color: var(--heading-color);
     margin-bottom: 0;
 }
